@@ -1,12 +1,10 @@
-const themeSwitch = document.getElementById('theme-switch');
+const themeToggle = document.getElementById('toggle');
 
-themeSwitch.addEventListener('click', function () {
-    this.classList.remove('fa-sun');
-    this.classList.add('fa-moon');
-
-    setTimeout(() => {
-        this.classList.remove('fa-moon');
-        this.classList.add('fa-sun');
-        this.style.color = '';
-    }, 1500);
+themeToggle.addEventListener('change', () => {
+    if (themeToggle.checked) {
+    document.documentElement.setAttribute("data-theme", "🌑");
+    }
+    else {
+        document.documentElement.setAttribute("data-theme", "☀️");
+    }
 });

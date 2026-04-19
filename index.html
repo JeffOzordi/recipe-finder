@@ -8,14 +8,15 @@
     <title>Recipe Finder App</title>
 </head>
 <body>
-    <button id="theme-switch">
-        <i class="fas fa-sun"></i>
-    </button>
+     <div class="toggle_container">
+        <input type="checkbox" name="" id="toggle" checked>
+        <label for="toggle" class="btn"></label>
+    </div>
     <div class="container">
         <div class="heading">
             <h1><i class="fas fa-utensils"></i> Recipe Finder</h1>
             <p>Find delicious recipes from around the world</p>
-            <p class="api_link">Data from <a href="http://www.themealdb.com/api.php" target="_blank" rel="noopener noreferrer">TheMealDB</a>👩‍🍳</p> 
+            <p class="api-link">Data from <a href="http://www.themealdb.com/api.php" target="_blank" rel="noopener noreferrer">TheMealDB</a>👩‍🍳</p> 
         </div>
         <div class="search_container">
             <button id="search_btn"><i class="fas fa-search"></i></button>
@@ -26,7 +27,7 @@
             <p>No meals found. Try another search term</p>
         </div>
 
-        <div id="result-heading">
+        <div id="result_heading">
             <p>Search results for '...' <span class="search_remark"></span></p>
         </div>
         <div id="meals" class="meal-container"></div>
