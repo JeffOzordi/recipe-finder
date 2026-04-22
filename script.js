@@ -20,10 +20,10 @@ const LOOKUP_URL = `${BASE_URL}lookup.php?i=`;
 
 themeToggle.addEventListener('change', () => {
     if (themeToggle.checked) {
-    document.documentElement.setAttribute("data-theme", "🌑");
+    document.documentElement.setAttribute("data-theme", "dark");
     }
     else {
-        document.documentElement.setAttribute("data-theme", "☀️");
+        document.documentElement.setAttribute("data-theme", "light");
     }
 });
 
