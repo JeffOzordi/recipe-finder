@@ -1,5 +1,7 @@
 // DOM elements
 const themeToggle = document.getElementById('toggle');
+const headings = document.getElementById('heading');
+const searchContainer = document.getElementById('search_container');
 const searchInput = document.getElementById('search_input');
 const searchBtn = document.getElementById('search_btn');
 const mealsContainer = document.getElementById('meals');
@@ -39,6 +41,9 @@ mealsContainer.addEventListener('click', handleMealClick)
 
 backBtn.addEventListener('click', () => {
     mealDetails.classList.add('hidden')
+    mealsContainer.classList.remove('hidden')
+    searchContainer.classList.remove('hidden')
+    headings.classList.remove('hidden')
 });
 // functions
 async function searchMeals() {
@@ -103,28 +108,28 @@ async function handleMealClick(e) {
     const mealId = mealEl.getAttribute('data-meal-id')
 
     try {
-        const response = await fetch(`${LOOKUP_URL}${mealId}`);
-        const data = await response.json();
+      const response = await fetch(`${LOOKUP_URL}${mealId}`);
+      const data = await response.json();
 
-        console.log(mealId);
-        console.log(data);
+      console.log(mealId);
+      console.log(data);
 
-        if (data.meals && data.meals[0]) {
-            const meal = data.meals[0]
+      if (data.meals && data.meals[0]) {
+          const meal = data.meals[0]
 
-            const ingredients = []
+          const ingredients = []
 
-            for (let i = 1; i <= 20; i++) {
-                const ingredient = meal[`strIngredient${i}`];
-                const measure = meal[`strMeasure${i}`];
+          for (let i = 1; i <= 20; i++) {
+              const ingredient = meal[`strIngredient${i}`];
+              const measure = meal[`strMeasure${i}`];
 
-                if (ingredient && ingredient.trim()) {
-                    ingredients.push({
-                        ingredient: ingredient.trim(),
-                        measure: measure ? measure.trim() : ''
-                    });
-                }
-            }
+              if (ingredient && ingredient.trim()) {
+                  ingredients.push({
+                      ingredient: ingredient.trim(),
+                      measure: measure ? measure.trim() : ''
+                  });
+              }
+          }
 
       // display meal details
       mealsDetailsContent.innerHTML = `
@@ -152,7 +157,7 @@ async function handleMealClick(e) {
         ${
           meal.strYoutube
             ? `
-          <a href="${meal.strYoutube}" target="_blank" class="youtube-link">
+          <a href="${meal.strYoutube}" target="_blank" class="yt-link">
             <i class="fab fa-youtube"></i> Watch Video
           </a>
         `
@@ -161,7 +166,10 @@ async function handleMealClick(e) {
       `;
 
             mealDetails.classList.remove('hidden')
-            mealDetails.scrollIntoView({ behavior: 'smooth'});
+            // mealDetails.scrollIntoView({ behavior: 'smooth'});
+            mealsContainer.classList.add('hidden')
+            searchContainer.classList.add('hidden')
+            headings.classList.add('hidden')
         }
     }
     catch(error){

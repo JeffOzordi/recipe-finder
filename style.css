@@ -308,8 +308,9 @@ input:checked + .btn::before {
 #meal-details {
     background-color: var(--bg-color);
     border-radius: 8px;
-    box-shadow: var(--box-shadow);
     padding: 1.5rem;
+    box-shadow: 0 10px 20px var(--primary-color-light);
+    animation: fadeIn 0.5s ease-in;  
 }
 
 .back-btn{
@@ -370,7 +371,7 @@ input:checked + .btn::before {
     background-color: var(--primary-color-light);
     padding: .4rem 1.2rem;
     border-radius: 2rem;
-    font-size: .9rem;
+    font-size: 1.4rem;
 }
 
 .meal-details-instructions {
@@ -410,7 +411,7 @@ input:checked + .btn::before {
     background-color: #ff0000;
     color: white;
     padding: .8rem 1.5rem;
-    border-radius: 4px;
+    border-radius: 12px;
     text-decoration: none;
     font-weight: 600;
     margin-top: 1rem;
@@ -418,7 +419,7 @@ input:checked + .btn::before {
 }
 
 .yt-link i {
-    margin-right: .8rem;
+    margin-right: .5rem;
 }
 
 #error-container {
